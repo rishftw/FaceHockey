@@ -1,14 +1,16 @@
 #include "AppDelegate.h"
 #include "GameLayer.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
+using namespace CocosDenshion;
 
 AppDelegate::AppDelegate() {
     
 }
 
-AppDelegate::~AppDelegate()
-{
+AppDelegate::~AppDelegate(){
+
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
@@ -16,8 +18,23 @@ bool AppDelegate::applicationDidFinishLaunching() {
     CCDirector* pDirector = CCDirector::sharedDirector();
     CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
     
+    CCSize screenSize = pEGLView->getFrameSize();
+    CCSize designSize = CCSize (1024, 768);
+    
     pDirector->setOpenGLView(pEGLView);
+    
+    CCEGLView::sharedOpenGLView()->setDesignResolutionSize(designSize.width
+                                                          , designSize.height, kResolutionExactFit);
 	
+    std::vector<std::string> searchPaths;
+    
+    searchPaths.push_back("hd");
+    pDirector->setContentScaleFactor(1);
+    
+    CCFileUtils::sharedFileUtils()->setSearchPaths(searchPaths);
+    
+    SimpleAudioEngine::sharedEngine()->preloadEffect(CCFileUtils::sharedFileUtils()->fullPathForFilename("table_hit.wav").c_str());
+    
     // turn on display FPS
     pDirector->setDisplayStats(true);
     

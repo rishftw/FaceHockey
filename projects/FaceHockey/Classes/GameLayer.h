@@ -5,17 +5,9 @@
 #include "cocos2d.h"
 #include "Box2D.h"
 #include "GLES-Render.h"
+#include "cocoa/CCNS.h"
 
-class PhysicsSprite : public cocos2d::CCSprite
-{
-public:
-    PhysicsSprite();
-    void setPhysicsBody(b2Body * body);
-    virtual bool isDirty(void);
-    virtual cocos2d::CCAffineTransform nodeToParentTransform(void);
-private:
-    b2Body* m_pBody;    // strong ref
-};
+USING_NS_CC;
 
 class GameLayer : public cocos2d::CCLayer {
 public:
@@ -28,11 +20,17 @@ public:
     void initPhysics();
     virtual void draw();
     void update(float dt);
+    b2ChainShape* createBoundingBoxShape();
+    float convertPixelToRatio(float pixelVal, int heightOrWidth);
     
 private:
     b2World* world;
     
+    CCSize _screenSize;
+    
     GLESDebugDraw *m_debugDraw;
+    
+    void addBG();
 };
 
 #endif // __GAMELAYER_H__
