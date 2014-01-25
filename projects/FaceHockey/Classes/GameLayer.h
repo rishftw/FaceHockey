@@ -20,8 +20,7 @@ public:
     void initPhysics();
     virtual void draw();
     void update(float dt);
-    b2ChainShape* createBoundingBoxShape();
-    float convertPixelToRatio(float pixelVal, int heightOrWidth);
+    
     
 private:
     b2World* world;
@@ -30,7 +29,9 @@ private:
     
     GLESDebugDraw *m_debugDraw;
     
-    void addBG();
+    b2ChainShape* createBoundingBoxShape();
+    
+    float convertPixelToRatio(float pixelVal, int heightOrWidth);
 };
 
 #endif // __GAMELAYER_H__

@@ -11,7 +11,10 @@ GameLayer::GameLayer()
 {
     _screenSize = CCDirector::sharedDirector()->getWinSize();
     
-    addBG();
+    CCSprite *bg = CCSprite::create("bg.jpg");
+    bg->setPosition(ccp(_screenSize.width*0.5f,
+                        _screenSize.height*0.5f));
+    this->addChild(bg);
     
     // init physics
     this->initPhysics();
@@ -158,11 +161,4 @@ float GameLayer::convertPixelToRatio(float pixelVal, int heightOrWidth){
         return (tempVal*_screenSize.width)/PTM_RATIO;
     }
     
-}
-
-void GameLayer::addBG(){
-    CCSprite *bg = CCSprite::create("bg.jpeg");
-    bg->setPosition(ccp(_screenSize.width*0.5f,
-                        _screenSize.height*0.5f));
-    this->addChild(bg);
 }
