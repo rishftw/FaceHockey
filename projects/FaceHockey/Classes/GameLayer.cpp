@@ -1,6 +1,5 @@
 #include "GameLayer.h"
 #include "SimpleAudioEngine.h"
-#include "GB2ShapeCache-x.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -16,8 +15,15 @@ GameLayer::GameLayer()
                         _screenSize.height*0.5f));
     this->addChild(bg);
     
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("sprite_sheet.plist");
+    _gameBatchNode = CCSpriteBatchNode::create("sprite_sheet", 50);
+    
+    this->addChild(_gameBatchNode, kMiddleground);
+    
     // init physics
     this->initPhysics();
+    
+    setTouchEnabled(true);
     
     scheduleUpdate();
 }
@@ -27,7 +33,8 @@ GameLayer::~GameLayer()
     delete world;
     world = NULL;
     
-    //delete m_debugDraw;
+    delete m_debugDraw;
+    delete _collisionListener;
 }
 
 void GameLayer::initPhysics()
@@ -42,6 +49,10 @@ void GameLayer::initPhysics()
     world->SetAllowSleeping(true);
     
     world->SetContinuousPhysics(true);
+    
+    _collisionListener = new CollisionListener;
+    world->SetContactListener(_collisionListener);
+    
     
     m_debugDraw = new GLESDebugDraw( PTM_RATIO );
     world->SetDebugDraw(m_debugDraw);
@@ -72,7 +83,6 @@ void GameLayer::initPhysics()
     
     boundingBody->CreateFixture(&boundingBoxFixDef);
     
-    world->DestroyBody(boundingBody);
     
 }
 

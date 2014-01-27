@@ -6,8 +6,17 @@
 #include "Box2D.h"
 #include "GLES-Render.h"
 #include "cocoa/CCNS.h"
+#include "b2Sprite.h"
+#include "GB2ShapeCache-x.h"
+#include "CollisionListener.h"
 
 USING_NS_CC;
+
+enum {
+    kBackground,
+    kMiddleground,
+    kForeground
+};
 
 class GameLayer : public cocos2d::CCLayer {
 public:
@@ -23,7 +32,10 @@ public:
     
     
 private:
-    b2World* world;
+    CCSpriteBatchNode * _gameBatchNode;
+    b2ContactListener *_collisionListener;
+    
+    CC_SYNTHESIZE(b2World*, world, World);
     
     CCSize _screenSize;
     

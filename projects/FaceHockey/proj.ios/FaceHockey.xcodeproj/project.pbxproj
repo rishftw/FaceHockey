@@ -249,6 +249,8 @@
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
 		D75A170818927E4600174205 /* hd in Resources */ = {isa = PBXBuildFile; fileRef = D75A170718927E4600174205 /* hd */; };
 		D75A170B18929C1800174205 /* GB2ShapeCache-x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D75A170918929C1800174205 /* GB2ShapeCache-x.cpp */; };
+		D7A605581896F4F90033E4CC /* CollisionListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7A605561896F4F90033E4CC /* CollisionListener.cpp */; };
+		D7A6055B1896F69A0033E4CC /* Face.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7A605591896F69A0033E4CC /* Face.cpp */; };
 		D7C6633C1893F90F002BF4DC /* b2Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7C6633A1893F90F002BF4DC /* b2Sprite.cpp */; };
 		D7F63AA2188FC66600889C0F /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7F63AA0188FC66600889C0F /* GLES-Render.cpp */; };
 /* End PBXBuildFile section */
@@ -750,6 +752,10 @@
 		D75A170718927E4600174205 /* hd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hd; sourceTree = "<group>"; };
 		D75A170918929C1800174205 /* GB2ShapeCache-x.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GB2ShapeCache-x.cpp"; sourceTree = "<group>"; };
 		D75A170A18929C1800174205 /* GB2ShapeCache-x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GB2ShapeCache-x.h"; sourceTree = "<group>"; };
+		D7A605561896F4F90033E4CC /* CollisionListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CollisionListener.cpp; path = ../Classes/CollisionListener.cpp; sourceTree = "<group>"; };
+		D7A605571896F4F90033E4CC /* CollisionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionListener.h; path = ../Classes/CollisionListener.h; sourceTree = "<group>"; };
+		D7A605591896F69A0033E4CC /* Face.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Face.cpp; path = ../Classes/Face.cpp; sourceTree = "<group>"; };
+		D7A6055A1896F69A0033E4CC /* Face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Face.h; path = ../Classes/Face.h; sourceTree = "<group>"; };
 		D7C6633A1893F90F002BF4DC /* b2Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = b2Sprite.cpp; path = ../Classes/b2Sprite.cpp; sourceTree = "<group>"; };
 		D7C6633B1893F90F002BF4DC /* b2Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = b2Sprite.h; path = ../Classes/b2Sprite.h; sourceTree = "<group>"; };
 		D7F63AA0188FC66600889C0F /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GLES-Render.cpp"; sourceTree = "<group>"; };
@@ -1282,6 +1288,10 @@
 				1AFAF8B616D35DE700DB1158 /* GameLayer.h */,
 				D7C6633A1893F90F002BF4DC /* b2Sprite.cpp */,
 				D7C6633B1893F90F002BF4DC /* b2Sprite.h */,
+				D7A605561896F4F90033E4CC /* CollisionListener.cpp */,
+				D7A605571896F4F90033E4CC /* CollisionListener.h */,
+				D7A605591896F69A0033E4CC /* Face.cpp */,
+				D7A6055A1896F69A0033E4CC /* Face.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1877,6 +1887,7 @@
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
 				15A3D9251682F7D5002FB0C5 /* b2PrismaticJoint.cpp in Sources */,
 				15A3D9261682F7D5002FB0C5 /* b2PulleyJoint.cpp in Sources */,
+				D7A605581896F4F90033E4CC /* CollisionListener.cpp in Sources */,
 				15A3D9271682F7D5002FB0C5 /* b2RevoluteJoint.cpp in Sources */,
 				15A3D9281682F7D5002FB0C5 /* b2RopeJoint.cpp in Sources */,
 				15A3D9291682F7D5002FB0C5 /* b2WeldJoint.cpp in Sources */,
@@ -2010,6 +2021,7 @@
 				379BB9A417F03F3700829B88 /* CCSkin.cpp in Sources */,
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,
 				379BB9A617F03F3700829B88 /* CCArmatureDataManager.cpp in Sources */,
+				D7A6055B1896F69A0033E4CC /* Face.cpp in Sources */,
 				379BB9A717F03F3700829B88 /* CCArmatureDefine.cpp in Sources */,
 				379BB9A817F03F3700829B88 /* CCDataReaderHelper.cpp in Sources */,
 				379BB9A917F03F3700829B88 /* CCSpriteFrameCacheHelper.cpp in Sources */,
