@@ -1733,6 +1733,7 @@
 		1551A34D158F2AB200E66CFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
 				CODE_SIGN_IDENTITY = rish_ftw;
 				DSTROOT = /tmp/cocos2dx.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

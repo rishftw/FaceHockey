@@ -2,13 +2,16 @@
 #define __GAMELAYER_H__
 
 // When you import this file, you import all the cocos2d classes
+
+
 #include "cocos2d.h"
 #include "Box2D.h"
 #include "GLES-Render.h"
 #include "cocoa/CCNS.h"
 #include "b2Sprite.h"
 #include "GB2ShapeCache-x.h"
-#include "CollisionListener.h"
+#include "Face.h"
+//#include "CollisionListener.h"
 
 USING_NS_CC;
 
@@ -30,12 +33,14 @@ public:
     virtual void draw();
     void update(float dt);
     
+    b2World *world;
     
 private:
     CCSpriteBatchNode * _gameBatchNode;
-    b2ContactListener *_collisionListener;
+    //b2ContactListener *_collisionListener;
     
-    CC_SYNTHESIZE(b2World*, world, World);
+    
+    Face *face;
     
     CCSize _screenSize;
     

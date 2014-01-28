@@ -252,6 +252,7 @@
 		D7A605581896F4F90033E4CC /* CollisionListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7A605561896F4F90033E4CC /* CollisionListener.cpp */; };
 		D7A6055B1896F69A0033E4CC /* Face.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7A605591896F69A0033E4CC /* Face.cpp */; };
 		D7C6633C1893F90F002BF4DC /* b2Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7C6633A1893F90F002BF4DC /* b2Sprite.cpp */; };
+		D7E27C401897112E00C9D11A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7E27C3F1897112E00C9D11A /* Entitlements.plist */; };
 		D7F63AA2188FC66600889C0F /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7F63AA0188FC66600889C0F /* GLES-Render.cpp */; };
 /* End PBXBuildFile section */
 
@@ -758,6 +759,7 @@
 		D7A6055A1896F69A0033E4CC /* Face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Face.h; path = ../Classes/Face.h; sourceTree = "<group>"; };
 		D7C6633A1893F90F002BF4DC /* b2Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = b2Sprite.cpp; path = ../Classes/b2Sprite.cpp; sourceTree = "<group>"; };
 		D7C6633B1893F90F002BF4DC /* b2Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = b2Sprite.h; path = ../Classes/b2Sprite.h; sourceTree = "<group>"; };
+		D7E27C3F1897112E00C9D11A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		D7F63AA0188FC66600889C0F /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GLES-Render.cpp"; sourceTree = "<group>"; };
 		D7F63AA1188FC66600889C0F /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1401,6 +1403,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				D7E27C3F1897112E00C9D11A /* Entitlements.plist */,
 				15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */,
 				15A3D8871682F7D5002FB0C5 /* Box2D */,
 				15A3D93A1682F7F9002FB0C5 /* chipmunk */,
@@ -1837,6 +1840,7 @@
 				379BB9CD17F03F3700829B88 /* json_internalmap.inl in Resources */,
 				379BB9D017F03F3700829B88 /* json_valueiterator.inl in Resources */,
 				379BB9D217F03F3700829B88 /* sconscript in Resources */,
+				D7E27C401897112E00C9D11A /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2082,6 +2086,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = Entitlements.plist;
 				CODE_SIGN_IDENTITY = rish_ftw;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = rish_ftw;
 				COPY_PHASE_STRIP = NO;
@@ -2132,6 +2138,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = Entitlements.plist;
 				CODE_SIGN_IDENTITY = rish_ftw;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = rish_ftw;
 				COPY_PHASE_STRIP = YES;

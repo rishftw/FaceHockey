@@ -4,7 +4,7 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
-#define PTM_RATIO 32
+//#define PTM_RATIO 32
 
 GameLayer::GameLayer()
 {
@@ -16,7 +16,7 @@ GameLayer::GameLayer()
     this->addChild(bg);
     
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("sprite_sheet.plist");
-    _gameBatchNode = CCSpriteBatchNode::create("sprite_sheet", 50);
+    _gameBatchNode = CCSpriteBatchNode::create("sprite_sheet.png");
     
     this->addChild(_gameBatchNode, kMiddleground);
     
@@ -34,7 +34,7 @@ GameLayer::~GameLayer()
     world = NULL;
     
     delete m_debugDraw;
-    delete _collisionListener;
+    //delete _collisionListener;
 }
 
 void GameLayer::initPhysics()
@@ -50,8 +50,8 @@ void GameLayer::initPhysics()
     
     world->SetContinuousPhysics(true);
     
-    _collisionListener = new CollisionListener;
-    world->SetContactListener(_collisionListener);
+    //_collisionListener = new CollisionListener;
+    //world->SetContactListener(_collisionListener);
     
     
     m_debugDraw = new GLESDebugDraw( PTM_RATIO );
@@ -83,7 +83,11 @@ void GameLayer::initPhysics()
     
     boundingBody->CreateFixture(&boundingBoxFixDef);
     
+    face = Face::create(this, 1, ccp(0.5f*_screenSize.width, 0.5f*_screenSize.height));
     
+    _gameBatchNode->addChild(face);
+    
+    face->setVisible(true);
 }
 
 void GameLayer::draw()
@@ -119,6 +123,19 @@ void GameLayer::update(float dt)
     // Instruct the world to perform a single step of simulation. It is
     // generally best to keep the time step and iterations fixed.
     world->Step(dt, velocityIterations, positionIterations);
+    
+    face->update(dt);
+    
+    static bool y = true;
+    if(y==true){
+        b2Vec2 force = b2Vec2(0.0f,10.0f);
+        b2Vec2 point = face->getBody()->GetWorldCenter();
+        face->getBody()->ApplyLinearImpulse(force
+                                            , point);
+        y=false;
+    }else{
+        y=true;	
+    }
 }
 
 CCScene* GameLayer::scene()

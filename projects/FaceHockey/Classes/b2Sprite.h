@@ -9,24 +9,25 @@
 #ifndef __FaceHockey__b2Sprite__
 #define __FaceHockey__b2Sprite__
 
-#define PTM_RATIO 32.0f
 #define BAll_RADIUS 8.0f
+#define PTM_RATIO 32
 
 #include "cocos2d.h"
 #include "Box2D.h"
-#include "GameLayer.h"
 
 USING_NS_CC;
 
 class GameLayer;
 
 class b2Sprite : public CCSprite{
-
+protected:
+    b2Body *_body;
+    
 public:
     
     b2Sprite(GameLayer* game, int type);
     
-    CC_SYNTHESIZE(b2Body* , _body, Body);
+    b2Body* getBody();
     CC_SYNTHESIZE(GameLayer*, _game, Game);
     CC_SYNTHESIZE(int, _type, Type);
     

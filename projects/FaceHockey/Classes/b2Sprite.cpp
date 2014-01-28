@@ -7,6 +7,7 @@
 //
 
 #include "b2Sprite.h"
+#include "GameLayer.h"
 
 
 b2Sprite::b2Sprite (GameLayer* game, int type){
@@ -54,4 +55,8 @@ float b2Sprite::mag(void){
         pow(_body->GetLinearVelocity().y, 2);
     }
     return 0.0f;
+}
+
+b2Body* b2Sprite::getBody(){
+    return _body;
 }
