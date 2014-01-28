@@ -9,7 +9,7 @@
 #include "Face.h"
 #include "GameLayer.h"
 
-#define BALL_RADIUS 96
+#define BALL_RADIUS 72
 
 Face::~Face(){
 }
@@ -48,15 +48,15 @@ void Face::initFace() {
     
     _body->SetUserData(this);
     
-    
+    /*
      //create shape
     string temp = "dhruv_face";
     GB2ShapeCache *sc = GB2ShapeCache::sharedGB2ShapeCache();
     sc->addFixturesToBody(_body, temp.c_str());
     this->setAnchorPoint(sc->anchorPointForShape(temp.c_str()));
+    */
     
     
-    /*
     //create circle shape
     b2CircleShape  circle;
     circle.m_radius = BALL_RADIUS/PTM_RATIO;
@@ -68,7 +68,7 @@ void Face::initFace() {
     fixtureDef.restitution = 0.7;
     
     _body->CreateFixture(&fixtureDef);
-    */
+    
     _body->SetUserData(this);
 
     setSpritePosition(_startPosition);

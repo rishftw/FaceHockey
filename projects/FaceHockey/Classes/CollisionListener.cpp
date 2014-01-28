@@ -8,3 +8,9 @@
 
 #include "CollisionListener.h"
 
+void CollisionListener::BeginContact(b2Contact* contact){
+}
+
+void CollisionListener::PreSolve(b2Contact* contact, const b2Manifold* oldManifold){
+
+}

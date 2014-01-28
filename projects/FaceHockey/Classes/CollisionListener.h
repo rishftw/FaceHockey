@@ -10,7 +10,7 @@
 #define __FaceHockey__CollisionListener__
 
 #include "Box2d.h"
-#include "GameLayer.h"
+//#include "GameLayer.h"
 
 class CollisionListener : public b2ContactListener
 {
