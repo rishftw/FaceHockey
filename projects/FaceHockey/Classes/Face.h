@@ -27,7 +27,7 @@ public:
     ~Face();
     Face(GameLayer * game, int type, CCPoint position);
     static Face* create(GameLayer * game, int type, CCPoint position);
-    virtual void reset(void);
+    virtual void reset();
     virtual void update (float dt);
 private:
     void initFace();
