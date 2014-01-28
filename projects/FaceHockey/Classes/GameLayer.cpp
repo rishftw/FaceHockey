@@ -39,7 +39,7 @@ GameLayer::~GameLayer()
 
 void GameLayer::initPhysics()
 {
-    GB2ShapeCache::sharedGB2ShapeCache()->addShapesWithFile("shapes.plist");
+    //GB2ShapeCache::sharedGB2ShapeCache()->addShapesWithFile("shapes.plist");
     
     b2Vec2 gravity;
     gravity.Set(0.0f, 0.0f);
@@ -88,6 +88,12 @@ void GameLayer::initPhysics()
     _gameBatchNode->addChild(face);
     
     face->setVisible(true);
+    
+    bat = Bat::create(this, 2, ccp(0.2f*_screenSize.width,
+                                   0.5f*_screenSize.height));
+    _gameBatchNode->addChild(bat);
+    
+    bat->setVisible(true);
 }
 
 void GameLayer::draw()
@@ -125,6 +131,8 @@ void GameLayer::update(float dt)
     world->Step(dt, velocityIterations, positionIterations);
     
     face->update(dt);
+    
+    bat->update(dt);
     
     static bool y = true;
     if(y==true){
@@ -188,4 +196,8 @@ float GameLayer::convertPixelToRatio(float pixelVal, int heightOrWidth){
         return (tempVal*_screenSize.width)/PTM_RATIO;
     }
     
+}
+
+b2World* GameLayer::getWorld(){
+    return world;
 }

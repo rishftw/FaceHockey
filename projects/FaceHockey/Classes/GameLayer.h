@@ -9,8 +9,9 @@
 #include "GLES-Render.h"
 #include "cocoa/CCNS.h"
 #include "b2Sprite.h"
-#include "GB2ShapeCache-x.h"
+//#include "GB2ShapeCache-x.h"
 #include "Face.h"
+#include "Bat.h"
 //#include "CollisionListener.h"
 
 USING_NS_CC;
@@ -35,12 +36,15 @@ public:
     
     b2World *world;
     
+    b2World* getWorld();
+    
 private:
     CCSpriteBatchNode * _gameBatchNode;
     //b2ContactListener *_collisionListener;
     
     
     Face *face;
+    Bat* bat;
     
     CCSize _screenSize;
     
